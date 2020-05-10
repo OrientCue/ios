@@ -1,4 +1,5 @@
-![logo](./_resources/logo-rsschool3.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/logo-rsschool3.png?raw=true">
+
 - [UIElements](./UIElements.md)
 - [Autolayout](./Autolayout.md)
 - [UIScrollView](./UIScrollView.md)

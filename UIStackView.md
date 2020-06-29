@@ -1,8 +1,12 @@
 # **UIStackView**
+
+- [Attributes](#attributes)
+- [Adding subviews](#adding-subviews)
+
 UIStackView предоставляет удобный интерфейс для расположения дочерних элементов по горизонтали или вертикали. UIStackView позволяет использовать всю мощь autolayout без использования констрейнтов, позволяет создавать пользовательский интерфейс, который динамически реагирует на внешние и внутренние изменения. Для позиционирования UIStackView вам придется использовать свои констреинты, без них система может посчитать размер UIStackView на основе его элементов. Если ширина и высота указаны явно, то UIStackView будет регулировать размер и положение дочерних элементов для того, чтобы заполнить все заданное пространство. 
 
 
-![372ce510c701dcc8d274bf451d6135be.png](./_resources/db5567edf6ad4e358816e47c4dd8c9c1.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/db5567edf6ad4e358816e47c4dd8c9c1.png?raw=true">"
 
 UIStackView опирается на intrinsic content size, приоритеты compression resistance и content hugging для того, чтобы знать какое пространство занимают элементы и то, как их можно сжимать. 
 Для финального расчета размера и положения элементов в UIStackView зависит от его свойств, а также от того, будете ли вы добавлять свои констрейнты внутри самого UIStackView. Это возможно сделать, например можно добавить констрейнт высоты или ширины. Но лучше этим не увлекаться, так как сам UIStackView создает внутри себя множество констрейнтов и это может сказываться как на производительности, так и на том, что ваши констреинты могут конфликтовать с констрейнтами внутри UIStackView. 
@@ -16,7 +20,7 @@ UIStackView опирается на intrinsic content size, приоритеты
 
 
 
-![d43db948ba20ea30b1fefb3993eee689.png](./_resources/95ae54bc783e47a39af957def561ac09.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/95ae54bc783e47a39af957def561ac09.png?raw=true">
 
 
 
@@ -26,13 +30,13 @@ UIStackView опирается на intrinsic content size, приоритеты
 Горизонтальная ориентация:
 
 
-![8b4eda15cb052c49fa7b9cfea54d18aa.png](./_resources/48618193c2d34211a24a88ec61e49c89.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/48618193c2d34211a24a88ec61e49c89.png?raw=true">
 
 Вертикальная ориентация:
 
 
 
-![3ce16aa5cc8fe0c3c01fbef6f95a8b42.png](./_resources/68b97b21bb524050939df1a9ad463756.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/68b97b21bb524050939df1a9ad463756.png?raw=true">
 
 
 
@@ -44,13 +48,13 @@ UIStackView опирается на intrinsic content size, приоритеты
 	- Equal Centering - распределяет элементы так, чтобы между их центрами было равное расстояние
 
 
-![db7de69b9d7118f9479008bab220a8c4.png](./_resources/b03ee208a9174bccad6bc37d6cffae3d.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/b03ee208a9174bccad6bc37d6cffae3d.png?raw=true">
 
 - **Spacing**
 Определяет расстояние между соседними элементами в UIStackView. По умолчанию он равен 0. 
 
 
-![b4c04cf3b9a1fc929b15c7ad0e7d1c48.png](./_resources/f6456a3e32df48efa62f5f9695828495.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/f6456a3e32df48efa62f5f9695828495.png?raw=true">
 
 
 * * *

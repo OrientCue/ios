@@ -1,6 +1,22 @@
 # UIElements
 Библиотека UIKit имеет множество элементов, такие как кнопки, поля для ввода и вывода текста и прочее.
 
+<!-- TOC -->
+- [UILabel](#uilabel)
+- [UIControl](#uicontrol)
+- [Наследование от UIControl](#наследование-от-uicontrol)
+- [UIButton](#uibutton)
+- [Содержание кнопки:](#содержание-кнопки)
+- [UITextField](#uitextfield)
+- [UITextFieldDelegate](#uitextfielddelegate)
+- [UITextField Overlay](#uitextfield-overlay)
+- [Keyboard attributes](#keyboard-attributes)
+- [UIScrollView](#uiscrollview)
+- [UITextView](#uitextview)
+- [UITextViewDelegate](#uitextviewdelegate)
+<!-- /TOC -->
+
+
 ## UILabel 
 *Наследуется от UIView*
 Элемент для отображения одной или нескольких строк текста. Можно изменять внешний вид отображаемого текста используя свойства UILabel, также UILabel поддерживает **attributedString**. 
@@ -33,15 +49,15 @@
 
 *Пример использования lineBreakMode:*
 
-![67b9ce132dc8389faf3e549d0edf5201.png](./_resources/4460ad3024494dc0b1c806dd137b6c9a.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/4460ad3024494dc0b1c806dd137b6c9a.png?raw=true">
 
 *Пример использования numberOfLines c lineBreakMode:*
 
-![6dd880838f47e86afca502110e3f35ce.png](./_resources/068abcab18844ba893183d39a410abb8.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/068abcab18844ba893183d39a410abb8.png?raw=true">
 
 *Пример использования lineBreakMode:*
 
-![4df7155f2af1d8a0f6359fee0be3f725.png](./_resources/43b640e87e4e49d0a47031d8f6f59a80.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/43b640e87e4e49d0a47031d8f6f59a80.png?raw=true">
 
 
 * * *
@@ -117,7 +133,7 @@ Target-Action Mechanism
 ### Содержание кнопки:
 
 
-![17e9e2197dcc88b30fc222095498b22b.png](./_resources/583feec326204aea95eb9effb5fcbec0.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/583feec326204aea95eb9effb5fcbec0.png?raw=true">
 
 **tintColor**. Свойство оттенка, унаследованное от UIView. Свойство устанавливает цвет изображения кнопки и текста. По умолчанию наследует цвет superview
 
@@ -166,7 +182,7 @@ UITextField вызывает методы делегата в ответ на н
 В дополнения к текстовому функционалу вы можете добавить overlay view для отображения дополнительной информации и функционала. Например, кнопка поиска или очистки текстового поля. Overlay представляет из себя небольшое изображение слева или справа от вводимого текста. 
 
 
-![7e56ac7b7c6cf31c5488e31f719d5d2b.png](./_resources/56294a3b3b22499daab680bd2b571920.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/56294a3b3b22499daab680bd2b571920.png?raw=true">
 
 
 
@@ -215,12 +231,12 @@ UIScrollView должно знать размер представления с�
 Пример работы UIScrollView: 
 
 
-![db1195e3ebad1bb73f3d5e219b9569b2.png](./_resources/35d3f1402d24410cb70fa9cad2607c2f.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/35d3f1402d24410cb70fa9cad2607c2f.png?raw=true">
 
 После прокрутки:
 
 
-![e305f649cb630df3e393f27a9a261cf4.png](./_resources/aea5462acc2e431dbc4a3dd67bca5d62.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/aea5462acc2e431dbc4a3dd67bca5d62.png?raw=true">
 
 
 Из примера видно, что frame и contentSize не изменились, а меняется только contentOffset.

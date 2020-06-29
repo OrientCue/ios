@@ -1,5 +1,32 @@
 # Autolayout.
 
+<!-- TOC -->
+- [Autolayout.](#autolayout)                  
+- [Manual layout](#manual-layout)    
+- [**Autoresizing Mask**](#autoresizing-mask)           
+- [UIView Property:](#uiview-property)            
+- [UIViewAutoresizing](#uiviewautoresizing)    
+- [**Autolayout**](#autolayout)        
+- [View attributes](#view-attributes)    
+- [**Constraint Priorities**](#constraint-priorities)    
+- [**Intrinsic content size**](#intrinsic-content-size)    
+- [Size that fits](#size-that-fits)    
+- [Content hugging](#content-hugging)    
+- [Content Compression Resistance](#content-compression-resistance)
+- [Create constraints in code](#create-constraints-in-code)    
+- [Constraint constructor](#constraint-constructor)    
+- [Visual Format Language (VFL)](#visual-format-language-vfl)    
+- [Anchors](#anchors)
+- [Stack View](#stack-view)    
+- [Safe area](#safe-area)    
+- [Margins](#margins)
+- [Trait collection](#trait-collection)    
+- [Size Classes](#size-classes)    
+- [UITraitEnvironment protocol](#uitraitenvironment-protocol)    
+- [UIContentContainer protocol](#uicontentcontainer-protocol)    
+- [Useful links 🤓](#useful-links-🤓)
+<!-- /TOC -->
+
 **layout** - это просто вычисление размеров и позиции всех ваших представлений в иерархии. В идеале, любой layout должен отвечать на внешние и внутренние изменения. 
 
 Примеры **внешних изменений**: 
@@ -15,11 +42,13 @@
 1.  Динамические изменения контента отображаемого приложения.
 2.  Приложение поддерживает интернационализацию(несколько языков).
 3.  Приложение поддерживает Dynamic Type (iOS)(когда пользователь может изменять размер шрифтов во время работы приложений).
+
 ---
 Существует три основных подхода при разработке пользовательского интерфейса: 
 1.  Ручная компоновка 
 2.  Используя Autoresizing Mask
 3.  Используя Autolayout 
+
 ***
 ## Manual layout
 Подход основан ручном выставлении начального положения и размера каждого вью относительно родительского. Однако при любом изменении размера или ориентации экрана придется пересчитывать положение и размер элементов. Данный подход является мощным, гибким и быстрым инструментом, однако даже для сравнительного простого интерфейса может оказаться очень трудоемким.
@@ -27,11 +56,14 @@
 ## **Autoresizing Mask**
 Позволяет указать как будут меняться размеры вью, при изменении размеров супервью. 
 
-![959c167931017048eba267d5296e64ba.png](https://github.com/OrientCue/ios/blob/master/_resources/f3e9e9534b234c32820ec70bc42d09c4.png?raw=true)
+
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/f3e9e9534b234c32820ec70bc42d09c4.png?raw=true"> 
+
 
 **Autoresizing Mask** поддерживает сравнительно небольшое количество настроек для компоновки интерфейса и не может обработать внутренние изменения. Обычно этот инструмент комбинируется с ручной компоновкой. До появления autolayout это был основной инструмент компоновки, хотя сейчас “под капотом” он основан на autolayout. Вкратце, принцип работы основан на указании того, какие края и какие размеры могут меняться при изменении родительского вью. 
 
 #### UIView Property:
+
 ```objc
 @property(nonatomic) UIViewAutoresizing autoresizingMask;    // simple resize. default is UIViewAutoresizingNone
 ```
@@ -49,9 +81,11 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
 };
 ```
 **Использование:** 
+
 ```objc
 self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 ```
+
 В данном примере мы говорим, что наша проперти должна реагировать на изменение высоты и широты родительского вью.
 
 ## **Autolayout**
@@ -68,7 +102,8 @@ Each constraint is a linear equation with the following format:
 `item1.attribute1 = multiplier × item2.attribute2 + constant`
 
 
-![089173392e57f1223e2888accb922756.png](https://github.com/OrientCue/ios/blob/master/_resources/2e0cdf83b2c64f72b7113326570d85e6.png?raw=true)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/2e0cdf83b2c64f72b7113326570d85e6.png?raw=true"> 
+
 
 - **Item1**- первый объект должен быть либо вью, либо лэяут гайд.
 - **Attribute1**- свойство первого элемента, на основе которого строится констр.
@@ -82,7 +117,7 @@ Each constraint is a linear equation with the following format:
 ### View attributes
 
 
-![304907c0e34c29d3957ca967ba17ab1a.png](https://github.com/OrientCue/ios/blob/master/_resources/acf2927bc8ff49f0b6deb242b2dd6d77.png?raw=true)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/acf2927bc8ff49f0b6deb242b2dd6d77.png?raw=true"> 
 
 - Height
 - Width
@@ -93,6 +128,8 @@ Each constraint is a linear equation with the following format:
 - Center Y
 - Center X
 - Baseline
+
+
 ```objc
 typedef NS_ENUM(NSInteger, NSLayoutAttribute) {
     NSLayoutAttributeLeft = 1,
@@ -134,9 +171,7 @@ typedef NS_ENUM(NSInteger, NSLayoutAttribute) {
 Пример того, как можно построить интерфейс при помощи констрейнтов:
 
 
-
-![0ef2257b2f4bebaef2e7ebae010a48c3.png](https://github.com/OrientCue/ios/blob/master/_resources/3c5f216ea7044a8e88378c3484c5ecb3.png?raw=true)
-
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/3c5f216ea7044a8e88378c3484c5ecb3.png?raw=true"> 
 
 
 Допустим у нас есть вью, которая располагается внутри супервью, вью должно располагаться по середине. Есть несколько способов как это можно сделать:
@@ -150,20 +185,20 @@ typedef NS_ENUM(NSInteger, NSLayoutAttribute) {
 Пример адаптивного интерфейса, на нем в разных ориентациях размещено две вью с одинаковой шириной и высотой, с отступами по краям и между ними. 
 
 
-![8944436dfcef7286456624bad3bd234e.png](https://github.com/OrientCue/ios/blob/master/_resources/324010037df549b69d3228365dbfba9b.png?raw=true)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/324010037df549b69d3228365dbfba9b.png?raw=true"> 
 
 Есть несколько вариантов построить такой интерфейс. 
 
 
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/93e360d457c74f9794aa6244407d2a56.png?raw=true"> 
 
-![f3d4c285fa97b0df8311f78e24fd2d7b.png](https://github.com/OrientCue/ios/blob/master/_resources/93e360d457c74f9794aa6244407d2a56.png?raw=true)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/bdfcf23e072b4490bd68ab594f82f53f.png?raw=true"> 
 
-
-![beb1f4ea614b582297cf1812a973c883.png](https://github.com/OrientCue/ios/blob/master/_resources/bdfcf23e072b4490bd68ab594f82f53f.png?raw=true)
 
 Для каждой вью задаются отступы по каждому краю и между ними и говорим что у них будет одинаковая ширина. 
 
-![b35624f33ba8bb16377ca368eca1cb47.png](https://github.com/OrientCue/ios/blob/master/_resources/f2f517c8e4db4a71b467a2ffdcd8f4ac.png?raw=true)
+
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/f2f517c8e4db4a71b467a2ffdcd8f4ac.png?raw=true"> 
 
 
 В этом варианте для первой указываются отступы по краям и между вью, а для синей вью нужно указать что она будет такой же как первая по высоте или сделать для второй привязку Top и Bottom к аналогичным атрибутам красной вью. 
@@ -214,7 +249,8 @@ Text Field | 250 |	250 | 750 | 750
 ## Content hugging
 Устанавливает приоритет, с которым вью будет препятствовать увеличению своего размера относительно увеличения своего контента. В данном примере вью по размерам обхватывает свой контент, не больше, не меньше. Если кто-то пытается растянуть наше вью, ContentHuggingPriority показывает то, на сколько сильно вью не хочет увеличиваться. Если его приоритет будет выше, чем констрейт который хочет его растянуть, то оно будет препятствовать этому. 
 
-![aa22dbc928574cea3f09f81910a662bf.png](https://github.com/OrientCue/ios/blob/master/_resources/820d543caf59444fbd5104e04ce15bfe.png?raw=true)
+
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/820d543caf59444fbd5104e04ce15bfe.png?raw=true"> 
 
 
 ## Content Compression Resistance
@@ -304,21 +340,17 @@ UIStackView позволяет реализовать всю мощь Auto layou
  Определяет отступы между соседними элементами
 
 
-![5cb1bc111f1875c0b10c747c72ccd0c7.png](https://github.com/OrientCue/ios/blob/master/_resources/1f75bf6642864e988c5808f403d3d390.png?raw=true)
-
-
-
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/1f75bf6642864e988c5808f403d3d390.png?raw=true"> 
 
 
 ## Safe area
 В iOS7 Apple представила такие свойства как topLayoutGuide и bottomLayoutGuide. Они принадлежали UIViewController которые устанавливали размер экрана, который не перекрывается другими представлениями такими как StatusBar, NavigationBar, ToolBar, TabBar. Размещая констрейнты в рамках этих свойств, можно было гарантировать что ваш контент не будет перекрыт ничем другим при любой ориентации или размере. Начиная с iOS11 на смену пришел Safe Area, это свойство относится к UIView. Главное отличие в том, что можно задавать не только верхние и нижние границы, а также боковые. Цель Safe Area - помочь разработчику разместить контент в видимой области интерфейса, и обезопасить его от наложений других представлений. 
 
 
-![a415892721a32dd9182dd914b44c4d49.png](https://github.com/OrientCue/ios/blob/master/_resources/d7ce86f4bbb14bceae2e632c4383c896.png?raw=true)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/d7ce86f4bbb14bceae2e632c4383c896.png?raw=true"> 
 
 
-![7a2075c3b9eeb4f75f45546bd42d7919.png](https://github.com/OrientCue/ios/blob/master/_resources/69089ea67a2c41a385ca24fd790c3e65.png?raw=true)
-
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/69089ea67a2c41a385ca24fd790c3e65.png?raw=true"> 
 
 
 ## Margins 
@@ -326,9 +358,7 @@ UIStackView позволяет реализовать всю мощь Auto layou
 Также атрибуты положений могут указывать не только от Safe Area, а еще и от Margins. Margins — это отступы по краям от представления. Они обеспечивают визуальный зазор между контентом и грaницей представления. По умолчанию margins равно 8pt. 
 
 
-
-![d70ffb8ec780e625da22db267b487aaa.png](https://github.com/OrientCue/ios/blob/master/_resources/05554c884aec4967a6fd71ef35fcfe99.png?raw=true)
-
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/05554c884aec4967a6fd71ef35fcfe99.png?raw=true">
 
 * * *
 
@@ -355,8 +385,7 @@ Size Class определяет относительное пространст�
 Данные size class изменяются в зависимости от размера экрана и ориентации.  Например, на картинке видно, как у IPhone 5, при Landscape ориентации значение size class будет compact как по ширине, так и по высоте. А в портретной ориентации высота будет regular, а ширина так и останется compact. Исходя из этих size classes можно размещать контент нужным вам образом. 
 
 
-
-![bbf7d923e76eebfbe404ef5a4afa13e3.png](https://github.com/OrientCue/ios/blob/master/_resources/97cd0e8e74604b02a3a862b99c9f837b.png?raw=true)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/97cd0e8e74604b02a3a862b99c9f837b.png?raw=true"> 
 
 У всех IPad во всех ориентациях значение size class будет regular. Однако если войти в Split View Mode, значение size class может менятся. 
 
@@ -393,7 +422,7 @@ typedef NS_ENUM(NSInteger, UIUserInterfaceSizeClass) {
 ```
 При переопределении рекомендуется вызывать super метод. Метод viewWillTransitionToSize: удобно использовать на небольших девайсах, таких как IPhone5, когда при перевороте экрана size class остается неизменным, этот методы вызывается при любом изменении.
 
-Useful links 🤓
+## Useful links 🤓
 
 [Auto Layout Guide](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html)
 

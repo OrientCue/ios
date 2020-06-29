@@ -1,8 +1,22 @@
 # UITableView
+
+<!-- TOC -->
+- [Table view navigation](#table-view-navigation)
+- [Adding a Table View](#adding-a-table-view)
+- [UITableViewController vs UITableView](#uitableviewcontroller-vs-uitableview)
+- [UITableViewDelegate](#uitableviewdelegate)
+- [Display customizations](#display-customizations)
+- [Selections managing](#selections-managing)
+- [Modifying Header and Footer](#modifying-header-and-footer)
+- [Editing Table View Rows](#editing-table-view-rows)
+- [UITableView updating API](#uitableview-updating-api)
+- [Useful materials 🤓](#useful-materials-)
+<!-- /TOC -->
+
 UITableView - один из самых распространенных компонентов в iOS разработке, используется практически во всех проектах. Table view представляет собой набор ячеек и способен скролиться. 
 
 
-![fce7fd9ffba603fbfff43e905ed90b0c.png](./_resources/73092bf9fc12412fa08fd406ba28c8a3.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/73092bf9fc12412fa08fd406ba28c8a3.png?raw=true">"
 
 
 
@@ -10,7 +24,7 @@ Table view styles
 
 
 
-![a3946fdc0cc91ffbe7aef7e797cc0b5e.png](./_resources/653ebe14292442d48b1e1b44d44807fd.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/653ebe14292442d48b1e1b44d44807fd.png?raw=true">
 
 Существует два стиля отображения: 
 - **Plain**
@@ -24,7 +38,7 @@ Table view styles
 
 
 
-![e53c1cb06e53aa18fc22aef243cad88d.png](./_resources/94105e37ca2746db97097a0b4885ef67.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/94105e37ca2746db97097a0b4885ef67.png?raw=true">
 
 UITableViewCell
 Как было сказанно ранее, данные в таблице размещены в ячейках, ячейки в таблице относятся к классу UITableViewCell. Стандартные конфигурации ячеек отображают простую комбинацию текста и изображений, но вы можете наследоваться от класса UITableViewCell для определения уникального внешнего вида и поведения. 
@@ -33,7 +47,7 @@ Table view cells styles
 
 
 
-![6ba798b30d410c4cc62cdaa0d8a0d0b2.png](./_resources/fb05993329344321858f7a2b343d572e.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/fb05993329344321858f7a2b343d572e.png?raw=true">
 
 
 UIKit предоставляет четыре стандартных стиля для ячеек: Basic (Default), Subtitle, Right Detail, Left Detail.

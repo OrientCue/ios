@@ -1,5 +1,14 @@
 # UIScrollView
 
+<!-- TOC -->
+- [UIScrollViewDelegate](#uiscrollviewdelegate)
+    - [Scrolling](#scrolling)
+    - [Dragging](#dragging)
+    - [Zooming](#zooming)
+- [Working with UIScrollView](#working-with-uiscrollview)
+- [Scrolling programmatically](#scrolling-programmatically)
+<!-- /TOC -->
+
 ##### Наследуется от: **UIView**
 ##### Родительский для: **UITextView, UICollectionView, UITableView**
 Главная задача, которая стоит перед UIScrollView это расположить контент который не умещается в границах экрана. Расположенный внутри UIScrollView контент обрезается по границе фрейма, но тем ни менее есть возможность прокрутить контент внутри UIScrollView. Когда мы начинаем прокручивать, UIScrollView меняет contentOffset.
@@ -8,14 +17,13 @@
 
 
 
-![9d33c5c8246dde2a95b7f2e95cd02e6a.png](./_resources/1147791adad44c9faaa6ec09114c7f78.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/1147791adad44c9faaa6ec09114c7f78.png?raw=true">
 
 После прокрутки:
 
 
 
-![282966d832271eaf2fe702a3cffd4571.png](./_resources/144e0825e9364adfb67a383a473e2c9f.png)
-
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/144e0825e9364adfb67a383a473e2c9f.png?raw=true">
 
 - **contentSize** 
 Свойство которое указывает на размер контента который находится внутри UIScrollView

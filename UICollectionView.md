@@ -1,13 +1,21 @@
 # UICollectionView
+<!-- TOC -->
+- [UICollectionView](#uicollectionview)    
+- [UICollectionView elements](#uicollectionview-elements)
+- [Key UICollectionView Concepts](#key-uicollectionview-concepts)
+- [Cell and View Reuse](#cell-and-view-reuse)
+- [Supplementary Views Reuse](#supplementary-views-reuse)
+- [UICollectionViewDelegate](#uicollectionviewdelegate)
+- [UICollectionViewFlowLayout](#uicollectionviewflowlayout)
+- [Useful links 🤓](#useful-links-🤓)
+<!-- /TOC -->
+
 UICollectionView используется для отображения каких-либо данных, как и UITableView. Однако отличии от UITableView вы можете расположить ячейки как угодно благодаря гибкой системе расположения элементов. Обычно UICollectionView представляет собой некую таблицу, где элементы располагаются в несколько столбцов или строк. Примерами использования являются стандартные приложения Photos или AppStore. 
 Основные преимущества UICollectionView:
 - Практически безграничная кастомизация интерфейса. 
 - Хорошая производительность и оптимизация для работы с большими данными. 
 
-
-
-
-![adf079a2d48045b24a5f979daeab1333.png](./_resources/0a72f1f07471479db7c0bdf2c738bf0f.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/0a72f1f07471479db7c0bdf2c738bf0f.png?raw=true">
 
 
 ## UICollectionView elements
@@ -18,7 +26,7 @@ UICollectionView используется для отображения каки
 - Decoration Views - представление, благодаря которому можно размещать наши cells на каком-то фоне. 
 
 
-![f3b39d8aacda13456d618a51d6d72fb7.png](./_resources/a5a5682080244e67bd4837554a4bf10c.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/a5a5682080244e67bd4837554a4bf10c.png?raw=true">
 
 
 ## Key UICollectionView Concepts
@@ -144,7 +152,7 @@ dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
 
 
 
-![64dbb68534aa2e04afdd2a31e2da2da0.png](./_resources/880f148a175e452ebfbd24b08bc92e08.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/880f148a175e452ebfbd24b08bc92e08.png?raw=true">
 
 #### Customization
 
@@ -169,12 +177,15 @@ layout.itemSize = CGSizeMake(30, 20);
 
 - Minimum inter-item spacing
 На самом деле мы устанавливаем только минимальное расстояние между ячейками, а сам FlowLayout исходя из содержимого сам считает реальное расстояние. Так как у нас элементы могут быть расположены, и иметь разные размеры, визуально некрасиво будет иметь статичное расстояние. 
-![b9be3c0530b56b7323212124a0a348c3.png](./_resources/f2e025b2eb164aec8da1feb0bc474345.png)
+
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/f2e025b2eb164aec8da1feb0bc474345.png?raw=true">
 
 
 - Minimum line spacing
 Тот-же принцип применяется и к расстоянию между линиями. Мы задаем минимальное расстояние а FlowLayout подстраивает сам реальный размер. 
-![1a2f3180f8e14a9ffedea93d26bb9df6.png](./_resources/63db68fe1c5143ba81f6f4b3de1fd89a.png)
+
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/63db68fe1c5143ba81f6f4b3de1fd89a.png?raw=true">
+
 Расстояние между ячейками и линиями можно установить глобально через свойство: 
 ```objc
 @property (nonatomic) CGFloat minimumLineSpacing;
@@ -207,8 +218,7 @@ FlowLayout позволяет менять отступы между элеме�
 
 
 
-
-![648fb1387f4462c82f5a0902483ed416.png](./_resources/8d22d1d92b45416b936f3feafe1d6977.png)
+<img src="https://github.com/OrientCue/ios/blob/master/_resources/8d22d1d92b45416b936f3feafe1d6977.png?raw=true">
 
 Может быть установлен глобально:
 ```objc

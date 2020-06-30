@@ -22,32 +22,32 @@
 Элемент для отображения одной или нескольких строк текста. Можно изменять внешний вид отображаемого текста используя свойства UILabel, также UILabel поддерживает **attributedString**. 
 Часто используемые свойства:
 
-- NSString *text
-- NSAttributedString *attributedText
+- `NSString *text`
+- `NSAttributedString *attributedText`
 Свойства обычного или форматированного текста, По умолчанию свойство равно nil. 
-- UIColor *textColor
+- `UIColor *textColor`
 Свойство для цвета отображаемого текста. 
-- UIFont *font
+- `UIFont *font`
 Свойство для шрифта отображаемого текста.  
-- CGFloat minimumFontSize [deprecated]
+- `CGFloat minimumFontSize` [deprecated]
 Свойство для указания минимального размера шрифта. Оно необходимо для того что-бы поместить большой текст в статическую область через уменьшение размера шрифта.  
-- CGFloat minimumScaleFactor
+- `CGFloat minimumScaleFactor`
 Свойство от 0.0 до 1.0 указывающее на сколько система может уменьшить шрифт чтобы поместить весь текст в статичную область. 
-- BOOL adjustsFontSizeToFitWidth
+- `BOOL adjustsFontSizeToFitWidth`
 Свойство, отвечающее за то, будут ли применены механизмы уменьшения текста, если текст не помещается в текущую область. свойство работает в коллаборации с minimumFontSize и minimumScaleFactor. Эти свойства будут работать только если adjustsFontSizeToFitWidth установлен в YES
 По умолчанию свойство равно NO. 
-- BOOL allowsDefaultTighteningForTruncation
+- `BOOL allowsDefaultTighteningForTruncation`
 Свойство, отвечающее за то, в случае если текст не помещается в заданную область, будет ли применен механизм “сжатия” текста, посредством уменьшения межбуквенного и интервала пробела. 
 По умолчанию свойство равно NO. 
-- NSTextAlignment textAlignment
-Свойство, указывающее на направление выравнивания текста. По умолчанию свойство равно NSTextAlignmentNatural
-- NSInteger numberOfLines
+- `NSTextAlignment textAlignment`
+Свойство, указывающее на направление выравнивания текста. По умолчанию свойство равно **NSTextAlignmentNatural**
+- `NSInteger numberOfLines`
 Свойство, отвечающее за количество строк в тексте. Если свойсво установить в 0, то количество строк ограничено не будет 
 По умолчанию свойство равно 1. 
-- NSLineBreakMode lineBreakMode
-Свойство отвечающее правило переноса на новую строку. По умолчанию свойство равно NSLineBreakByTruncatingTail
+- `NSLineBreakMode lineBreakMode`
+Свойство отвечающее правило переноса на новую строку. По умолчанию свойство равно **NSLineBreakByTruncatingTail**
 
-*Пример использования lineBreakMode:*
+**Пример использования lineBreakMode:**
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/4460ad3024494dc0b1c806dd137b6c9a.png?raw=true">
 
@@ -55,7 +55,7 @@
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/068abcab18844ba893183d39a410abb8.png?raw=true">
 
-*Пример использования lineBreakMode:*
+**Пример использования lineBreakMode:**
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/43b640e87e4e49d0a47031d8f6f59a80.png?raw=true">
 
@@ -146,17 +146,23 @@ Target-Action Mechanism
 *Наследуется от **UIControl***
 Текстовое поле. Используется в основном для сбора от пользователя текстовой информации с помощью экранной клавиатуры. Например, имя пользователя, пароль, почта и т.д, так же, как и кнопка использует target-action механизм, помимо это используется паттерн делегат для отслеживания изменений, внесенных в текст. 
 
-Конфигурация UITextField выглядит так: 
+Конфигурация UITextField выглядит так:
+
 1)	Настраиваем таргеты для текстового поля
 2)	Настраиваем связанные с клавиатурой атрибуты текстового поля
 3)	Назначаем объект делегата (UITextFieldDelegate), для обработки событий, таких как:
-a)	Разрешено ли редактирование содержимого текстового поля
-b)	Проверка введенного текста (валидация)
-c)	Обработка события нажатия кнопки Return на клавиатуре 
-d)	Переадресация введенного текста 
-4)	Сохранение ссылки на объект текстового поля. 
-Форматирование текстового поля в UITextField. 
-Есть два подхода помимо изменения свойства класса UITextField: 
+
+    1)	Разрешено ли редактирование содержимого текстового поля
+    2)	Проверка введенного текста (валидация)
+    3)	Обработка события нажатия кнопки Return на клавиатуре 
+    4)	Переадресация введенного текста и др.
+
+4)	Сохранение ссылки на объект текстового поля.
+
+Форматирование текстового поля в UITextField.
+
+Есть два подхода помимо изменения свойства класса UITextField:
+
 1)	используя NSAttributerString
 В отличи от дерективного изменения свойств класса UITextField, при помощи NSAttributerString можно менять внешний вид не только строки, но и ее подстрок. 
 2)	используя NSFormatter
@@ -169,8 +175,10 @@ replacementString:(NSString *)string;
 который мы можем использовать для проверки форматированная, используя, например NSDateFormatter. Как видим, метод должен вернуть булевское значение, если мы возвращаем YES, строка будет изменена, если NO, строка останется без изменения. 
 
 ### UITextFieldDelegate
+
 UITextField вызывает методы делегата в ответ на некоторые пользовательские действия. Например эти методы используются для проверки текста введенного пользователем, проверки действий связанных с клавиатурой и т.д
 Например: 
+
 1)	Прежде чем стать firstResponder, UITextField вызывает метод делега textFieldShouldBeginEditing: а также отправляет сообщение **UITextFieldTextDidBeginEditingNotification**
 2)	Каждый раз когда меняется текст в текстовом поле, UITextField вызывает метод делегата textField:shouldChangeCharactersInRange:replacementString: и посылает сообщение **UITextFieldTextDidChangeNotification**
 3)	Когда пользователь нажимает кнопку очистки текстового поля, UITextField вызывает метод делегата  textFieldShouldClear:

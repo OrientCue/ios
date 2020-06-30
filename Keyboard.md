@@ -1,8 +1,10 @@
 # **Keyboard**
+
 <!-- TOC -->
 - [**Keyboard**](#keyboard)    
 - [Keyboard overlaps content](#keyboard-overlaps-content)
 <!-- /TOC -->
+
 Режимы ввода: 
 Можно определить несколько разных типов 
 ввода на клавиатуре. Обычно определяется в UITextField или UITextView. Доступ к самой клавиатуре не нужен.  

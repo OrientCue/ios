@@ -6,10 +6,10 @@
 - [UIApplication](#uiapplication)    
 - [AppStates](#appstates)    
 - [AppDelegate-Based Life-Cycle](#appdelegate-based-life-cycle)    
-- [Application termination 🔥](#application-termination-🔥)    
+- [Application termination 🔥](#application-termination-)    
 - [Scene-Based Life-Cycle](#scene-based-life-cycle)    
 - [Background execution](#background-execution)    
-- [Useful materials 🤓](#useful-materials-🤓)
+- [Useful materials 🤓](#useful-materials-)
 <!-- /TOC -->
 
 

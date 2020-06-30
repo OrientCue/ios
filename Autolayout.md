@@ -24,7 +24,7 @@
 - [Size Classes](#size-classes)    
 - [UITraitEnvironment protocol](#uitraitenvironment-protocol)    
 - [UIContentContainer protocol](#uicontentcontainer-protocol)    
-- [Useful links 🤓](#useful-links-🤓)
+- [Useful links 🤓](#useful-links-)
 <!-- /TOC -->
 
 **layout** - это просто вычисление размеров и позиции всех ваших представлений в иерархии. В идеале, любой layout должен отвечать на внешние и внутренние изменения. 

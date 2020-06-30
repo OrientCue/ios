@@ -15,7 +15,7 @@
 - [Operation Dependencies](#operation-dependencies)
 - [Cancelling Operations](#cancelling-operations)
 - [Asynchronous operations](#asynchronous-operations)
-- [Useful materials 🤓](#useful-materials-🤓)
+- [Useful materials 🤓](#useful-materials-)
 <!-- /TOC -->
 
 ## NSOperation 

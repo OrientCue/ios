@@ -23,7 +23,7 @@
 - [Semaphore](#semaphore)
 - [Mutex](#mutex)
 - [Recursive mutex](#recursive-mutex)
-- [Useful materials 🤓](#useful-materials-🤓)
+- [Useful materials 🤓](#useful-materials-)
 <!-- /TOC -->
 
 ## Basic concepts

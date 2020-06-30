@@ -1,4 +1,5 @@
 # UICollectionView
+
 <!-- TOC -->
 - [UICollectionView](#uicollectionview)    
 - [UICollectionView elements](#uicollectionview-elements)
@@ -38,6 +39,7 @@ UICollectionView используется для отображения каки
 - Layout
 
 * * *
+
 ## Cell and View Reuse
 Подобно UITableView, в UICollectionView используется механизм переиспользования ячеек и SupplimentaryView без их дополнительной аллокации. Представим, что у нас есть набор данных, который в данный момент отображен на экране, и есть какие-то ячейки для этих данных. Когда эти ячейки уходят с экрана, они не деинициализируются, а попадают в т.н. “очередь переиспользования” (Reuse queue). Когда UICollectionView потребуется снова получить объект этого элемента, она не создает его заново, а берет уже проинициализированный из очереди. Этот механизм позволяет UICollectionView работать с большим количеством данных, при этом оперируя небольшим количеством ячеек. Чтобы все работало правильно, необходимо проделать несколько действий:
 Зарегистрировать ячейку и идентификатором: 
@@ -50,6 +52,7 @@ UICollectionView используется для отображения каки
 ```
 
 В DataSource методе cellForItemAtIndexPath: вы не должны создавать новую ячейку, а небходимо взять ее из очереди. Делается это с помощью следующих методов: 
+
 ```objc
 - (UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionReusableView *)dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
@@ -62,6 +65,7 @@ UICollectionView используется для отображения каки
 ```
 
 и берем нашу ячейку из очереди:
+
 ```objc
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,13 +78,15 @@ UICollectionView используется для отображения каки
 
 ## Supplementary Views Reuse
 Анологичным образом и для supplementary view. Регистрируем ячейку:
- ```objc
+
+```objc
 [self.collectionView registerClass:MyHeaderSupplementaryView.class
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
             withReuseIdentifier:@"MyHeaderViewIdentifier"];
 ```
 
 и берем нашу ячейку из очереди:
+
 ```
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
@@ -93,6 +99,7 @@ dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
     return view;
 }
 ```
+
 Однако, как можно заметить, для метода supplementary view есть параметр OfKind. Это тип, и каждый тип представлен произвольной строкой. Туда можно добавить любую строку для того, чтобы идентифицировать типы ваших supplementary view. В стандартном SDK преопределены два типа, это **UICollectionElementKindSectionHeader** и **UICollectionElementKindSectionFooter**.
 
 
@@ -166,11 +173,13 @@ dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
 
 Все эти свойства могут быть установлены как напрямую через свойства, так и используя UICollectionViewDelegateFlowLayout. Это делегат UICollectionViewFlowLayout, где можно определить методы, в которых можно возвращать конкретные значения. 
 - Item size
-Можно установить глобально, для всех элементов: 
+Можно установить глобально, для всех элементов:
+
 ```objc
 @property (nonatomic) CGSize itemSize;
 layout.itemSize = CGSizeMake(30, 20);
 ```
+
 Если мы хотим, чтобы каждый элемент имел отличный размер, нам нужно реализовать метод делегата: 
 `collectionView:layout:sizeForItemAtIndexPath:`
 В котором мы возвращает размер для конкретной ячейки
@@ -187,18 +196,24 @@ layout.itemSize = CGSizeMake(30, 20);
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/63db68fe1c5143ba81f6f4b3de1fd89a.png?raw=true">
 
 Расстояние между ячейками и линиями можно установить глобально через свойство: 
+
 ```objc
 @property (nonatomic) CGFloat minimumLineSpacing;
 @property (nonatomic) CGFloat minimumInteritemSpacing;
 ```
+
 или рассчитывать для каждого элемента отдельно используя методы делегата 
+
 ```objc
 - (CGFloat)collectionView:layout:minimumLineSpacingForSectionAtIndex:
 - (CGFloat)collectionView:layout:minimumInteritemSpacingForSectionAtIndex:
 ```
+
 - Scroll direction
-FlowLayout позволяет менять ориентацию для скроллинга. 
+FlowLayout позволяет менять ориентацию для скроллинга.
+
 `@property (nonatomic) UICollectionViewScrollDirection scrollDirection;`
+
 Может иметь два значение: вертикальный - **UICollectionViewScrollDirectionVertical**, горизонтальный - **UICollectionViewScrollDirectionHorizontal**
 - Headers and Footers
 FlowLayout позволяет нам установить размеры header и footer. Значение высоты важно если у нас используется вертикальный скролл, а ширины в случае горизонтального скрола. 
@@ -207,7 +222,9 @@ FlowLayout позволяет нам установить размеры header 
 @property (nonatomic) CGSize headerReferenceSize;
 @property (nonatomic) CGSize footerReferenceSize;
 ```
-	или используя методы делегата для каждого элемента в отдельности:
+
+или используя методы делегата для каждого элемента в отдельности:
+
 ```objc
 - (CGSize)collectionView:layout:referenceSizeForHeaderInSection:
 - (CGSize)collectionView:layout:referenceSizeForFooterInSection:

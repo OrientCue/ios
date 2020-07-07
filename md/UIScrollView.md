@@ -1,3 +1,6 @@
+
+ **[Back](https://orientcue.github.io/ios/ "Table of Content")**
+
 # UIScrollView
 
 <!-- TOC -->
@@ -14,14 +17,9 @@
 Главная задача, которая стоит перед UIScrollView это расположить контент который не умещается в границах экрана. Расположенный внутри UIScrollView контент обрезается по границе фрейма, но тем ни менее есть возможность прокрутить контент внутри UIScrollView. Когда мы начинаем прокручивать, UIScrollView меняет contentOffset.
 Пример работы UIScrollView: 
 
-
-
-
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/1147791adad44c9faaa6ec09114c7f78.png?raw=true">
 
 После прокрутки:
-
-
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/144e0825e9364adfb67a383a473e2c9f.png?raw=true">
 

@@ -1,3 +1,6 @@
+
+ **[Back](https://orientcue.github.io/ios/ "Table of Content")**
+
 # UITableView
 
 <!-- TOC -->
@@ -15,14 +18,9 @@
 
 UITableView - один из самых распространенных компонентов в iOS разработке, используется практически во всех проектах. Table view представляет собой набор ячеек и способен скролиться. 
 
-
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/73092bf9fc12412fa08fd406ba28c8a3.png?raw=true">"
 
-
-
 Table view styles
-
-
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/653ebe14292442d48b1e1b44d44807fd.png?raw=true">
 
@@ -36,16 +34,12 @@ Table view styles
 ## Table view navigation
 Таблицы обычно используются в приложениях, в которых данные имеют иерархическую структуру, в таком случае приложение часто использует UITableView в связке с UINavigationController. В таком случае мы получаем простую навигацию между разными уровнями иерархии. Такой подход можно наблюдать в нативном приложении Settings. 
 
-
-
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/94105e37ca2746db97097a0b4885ef67.png?raw=true">
 
 UITableViewCell
 Как было сказанно ранее, данные в таблице размещены в ячейках, ячейки в таблице относятся к классу UITableViewCell. Стандартные конфигурации ячеек отображают простую комбинацию текста и изображений, но вы можете наследоваться от класса UITableViewCell для определения уникального внешнего вида и поведения. 
 
 Table view cells styles
-
-
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/fb05993329344321858f7a2b343d572e.png?raw=true">
 

@@ -1,4 +1,5 @@
-# Конспект лекций RSS iOS 
+# Конспект лекций RSS iOS
+
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/logo-rsschool3.png?raw=true">
 
 # Table Of Content:
@@ -18,4 +19,6 @@
 - [Networking](./md/Networking.md)
 
 ***
-#### [GitHub Pages](https://orientcue.github.io/ios/)
+
+
+## [GitHub Pages](https://orientcue.github.io/ios/)

@@ -144,14 +144,14 @@ dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
 
 ## UICollectionViewLayout
 Абстрактный базовый класс для создания правил позиционирования и размеров элементов в UICollectionView. UICollectionViewLayout вычисляет атрибуты позиционирования для: Ячеек(Cells), Supplementary views, Decoration views. Так как это абстрактный класс, для того чтобы начать им пользоваться, необходимо создать наследника этого класса. 
-**UICollectionViewLayoutAttributes**
+### **UICollectionViewLayoutAttributes**
 Атрибуты позиционирования включают в себя: 
 
-- Position - расположение
-- Size - размеры
-- Opacity - прозрачность
-- zIndex - позиция по оси Z. 
-- Even transform 
+- `Position` - расположение
+- `Size` - размеры
+- `Opacity` - прозрачность
+- `zIndex` - позиция по оси Z. 
+- Even `transform` 
 - ...
 
 
@@ -217,7 +217,7 @@ FlowLayout позволяет менять ориентацию для скро�
 
 `@property (nonatomic) UICollectionViewScrollDirection scrollDirection;`
 
-Может иметь два значение: вертикальный - **UICollectionViewScrollDirectionVertical**, горизонтальный - **UICollectionViewScrollDirectionHorizontal**
+Может иметь два значение: вертикальный - **`UICollectionViewScrollDirectionVertical`**, горизонтальный - **`UICollectionViewScrollDirectionHorizontal`**
 - Headers and Footers
 FlowLayout позволяет нам установить размеры header и footer. Значение высоты важно если у нас используется вертикальный скролл, а ширины в случае горизонтального скрола. 
 Может быть установлен глобально: 
@@ -252,15 +252,15 @@ FlowLayout позволяет менять отступы между элеме�
 ## Custom Layout
 Basics to override
 Чтобы создать свой собственный UICollectionViewLayout, необходимо будет переопределить некоторые методы и свойства, такие как:
-- **prepareLayout**
+- **`prepareLayout`**
 Метод, который будет вызывает перед тем, как UICollectionView будет обращаться к вашему UICollectionViewLayout для того, чтобы взять у него атрибуты. 
-- **collectionViewContentSize**
+- **`collectionViewContentSize`**
 Метод, который возвращает размер контента
 
-- **layoutAttributesForElementsInRect**:
-- **layoutAttributesForItemAtIndexPath**:
-- **layoutAttributesForSupplementaryViewOfKind:atIndexPath:**
-- **layoutAttributesForDecorationViewOfKind:atIndexPath:**
+- **`layoutAttributesForElementsInRect`**:
+- **`layoutAttributesForItemAtIndexPath`**:
+- **`layoutAttributesForSupplementaryViewOfKind:atIndexPath:`**
+- **`layoutAttributesForDecorationViewOfKind:atIndexPath:`**
 
 * * *
 ## Useful links 🤓

@@ -287,10 +287,10 @@ NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithResumeData:dat
 ## NSURLSession delegate
 Есть 4 протокола относящиеся к NSURLSession delegate:
 
-- NSURLSessionDelegate 
-- NSURLSessionTaskDelegate 
-- NSURLSessionDataDelegate 
-- NSURLSessionDownloadDelegate
+- `NSURLSessionDelegate` 
+- `NSURLSessionTaskDelegate` 
+- `NSURLSessionDataDelegate` 
+- `NSURLSessionDownloadDelegate`
 
 **!!!ВАЖНО!!! Сессия держит сильную ссылку на объект делегата пока приложение не завершит работу или вы явно не вызовите invalidateAndCancel: или finishTasksAndInvalidate:. Если этого не сделать явно, будет наблюдаться утечка памяти.**
 
@@ -307,11 +307,11 @@ NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithResumeData:dat
 ## NSURLSessionDataDelegate
 
 Расширяет возможности NSURLSessionTaskDelegate. Позволяет получать данные уже в процессе загрузки. 
-Когда мы создаем задачу, по умолчанию ее состояние suspended. После вызова метода resume: состояние задачи переходит в running. После того как мы получили хедеры от сервера, вызывается метод: **didReceiveResponse**:. Когда получили данные от сервера, вызывается метод: **didReceiveData**:, дальше вызывается **willCacheResponse**:. В конце вызывается делегатный метод: **didCompleteWithError**:, одновременно с этим состояние переходит в Finished 
+Когда мы создаем задачу, по умолчанию ее состояние suspended. После вызова метода resume: состояние задачи переходит в running. После того как мы получили хедеры от сервера, вызывается метод: **`didReceiveResponse`**:. Когда получили данные от сервера, вызывается метод: **`didReceiveData`**:, дальше вызывается **`willCacheResponse`**:. В конце вызывается делегатный метод: **`didCompleteWithError`**:, одновременно с этим состояние переходит в Finished 
 
 ## NSURLSessionDownloadDelegate
 Расширяет возможности NSURLSessionTaskDelegate. Позволяет отслеживать процесс загрузки и предоставляет URL к локальному файлу, в который будет записан результат загрузки. 
-Когда мы создаем задачу, по умолчанию ее состояние suspended. После вызова метода resume: состояние задачи переходит в running. После того как мы получили хедеры от сервера, вызывается метод: **didWriteData**:. После завершения скачивания вызывается метод: **didFinishDownloadingToUrl**:. В конце вызывается делегатный метод: didCompleteWithError:, одновременно с этим состояние переходит в Finished.
+Когда мы создаем задачу, по умолчанию ее состояние suspended. После вызова метода resume: состояние задачи переходит в running. После того как мы получили хедеры от сервера, вызывается метод: **`didWriteData`**:. После завершения скачивания вызывается метод: **didFinishDownloadingToUrl**:. В конце вызывается делегатный метод: didCompleteWithError:, одновременно с этим состояние переходит в Finished.
 
 ## NSURLSession Summary
 Процесс работы с NSURLSession задачами это по большому счету процесс из трех шагов. 
@@ -369,7 +369,7 @@ completionHandler:(void (^)(void))completionHandler
 ### App Transport Security (ATS)
 
 Начиная с iOS9 запрещено использовать HTTP соединение, в iOS появилась такая технология как ATS, которая призвана улучшить приватность и сохранность данных для всех приложений. ATS требует, чтобы все HTTP соединения, которые вы совершаете, используя URLSession использовали HTTPS и блокирует те соединения, которые не соответствуют требованиям безопасности. Вы можете ослабить или расширить уровень защиты добавив словарь настроек к ключу
-**NSAppTransportSecurity** в info.plist файле. 
+**`NSAppTransportSecurity`** в info.plist файле. 
 По ключу **NSExceptionDomains** можно задать исключения для конкретных доменов. Есть несколько свойств и исключений, которые доступны по свои ключам. 
 
 
@@ -386,19 +386,19 @@ NSExceptionDomains : Dictionary {
 } }
 ```
 
-**NSExceptionAllowsInsecureHTTPLoads**
+**`NSExceptionAllowsInsecureHTTPLoads`**
 
 Самый часто используемый. Например, у нас есть сервер, которые поддерживает HTTP соединения, можно добавить этот сервер в исключения установив для него по этому ключу значение YES. Это позволит системе соединение только с этим сервером по протоколу HTTP. 
 
-**NSExceptionMinimumTLSVersion**
+**`NSExceptionMinimumTLSVersion`**
 
 Позволяет установить минимальную допустимую версию TLS. 
 
-**NSExceptionRequiresForwardSecrecy**
+**`NSExceptionRequiresForwardSecrecy`**
 
 Если установить значение в NO, то приложение не будет требовать у сервера поддержки perfect forward secrecy (PFS). 
 
-**NSRequiresCertificateTransparency**
+**`NSRequiresCertificateTransparency`**
 
 Ключ, который позволяет игнорировать ошибки Certificate Transparency (CT) — это протокол, который ATS может использовать для идентификации ошибочно или злонамеренно выданных сертификатов X.509.
 

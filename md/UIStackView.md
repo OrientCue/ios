@@ -14,18 +14,12 @@ UIStackView предоставляет удобный интерфейс для 
 UIStackView опирается на intrinsic content size, приоритеты compression resistance и content hugging для того, чтобы знать какое пространство занимают элементы и то, как их можно сжимать. 
 Для финального расчета размера и положения элементов в UIStackView зависит от его свойств, а также от того, будете ли вы добавлять свои констрейнты внутри самого UIStackView. Это возможно сделать, например можно добавить констрейнт высоты или ширины. Но лучше этим не увлекаться, так как сам UIStackView создает внутри себя множество констрейнтов и это может сказываться как на производительности, так и на том, что ваши констреинты могут конфликтовать с констрейнтами внутри UIStackView. 
 
-
 * * *
 
 ## Attributes 
 - **Axis** Определяет ориентацию UIStackView
 
-
-
-
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/95ae54bc783e47a39af957def561ac09.png?raw=true">
-
-
 
 - **Alignment**
 Определяет расположение элементов перпендикулярно ориентации UIStackView. 
@@ -37,11 +31,7 @@ UIStackView опирается на intrinsic content size, приоритеты
 
 Вертикальная ориентация:
 
-
-
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/68b97b21bb524050939df1a9ad463756.png?raw=true">
-
-
 
 - **Distribution**
 Определяет расположение элементов в текущей ориентации. По умолчанию
@@ -58,7 +48,6 @@ UIStackView опирается на intrinsic content size, приоритеты
 
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/f6456a3e32df48efa62f5f9695828495.png?raw=true">
-
 
 * * *
 

@@ -8,16 +8,16 @@
 <!-- TOC -->
 - [UILabel](#uilabel)
 - [UIControl](#uicontrol)
-- [Наследование от UIControl](#наследование-от-uicontrol)
-- [UIButton](#uibutton)
-- [Содержание кнопки:](#содержание-кнопки)
-- [UITextField](#uitextfield)
-- [UITextFieldDelegate](#uitextfielddelegate)
-- [UITextField Overlay](#uitextfield-overlay)
-- [Keyboard attributes](#keyboard-attributes)
+    - [Наследование от UIControl](#наследование-от-uicontrol)
+    - [UIButton](#uibutton)
+        - [Содержание кнопки:](#содержание-кнопки)
+    - [UITextField](#uitextfield)
+        - [UITextFieldDelegate](#uitextfielddelegate)
+        - [UITextField Overlay](#uitextfield-overlay)
+        - [Keyboard attributes](#keyboard-attributes)
 - [UIScrollView](#uiscrollview)
-- [UITextView](#uitextview)
-- [UITextViewDelegate](#uitextviewdelegate)
+    - [UITextView](#uitextview)
+        - [UITextViewDelegate](#uitextviewdelegate)
 <!-- /TOC -->
 
 
@@ -80,11 +80,11 @@
  forControlEvents:(UIControlEvents)controlEvents;
 ```
 
-Чтобы добавить action метод к классу UIControl нам необходимо указать объект который будет реализовывать этот метод (addTarget:(id)target), селектор для реализованного метода `action:(SEL)action`, и указать какое именно событие нас интересует (forControlEvents:(UIControlEvents)controlEvents) 
+Чтобы добавить action метод к классу UIControl нам необходимо указать объект который будет реализовывать этот метод (addTarget:(id)target), селектор для реализованного метода `action:(SEL)action`, и указать какое именно событие нас интересует `forControlEvents:(UIControlEvents)controlEvents`
 
 В роли `(id)target` может выступать любой объект, но обычно для этого используется объект UIViewController. Если указан nil то объект ищется по Responder Chain. 
 
- action:(SEL)action метод может принимать три формы:
+ `action:(SEL)action` метод может принимать три формы:
 ```objc
 - (IBAction)doSomething;
 - (IBAction)doSomething:(id)sender;
@@ -92,7 +92,7 @@
 ```
 
 
-**UIControlEvents** тип, определяющий каким именно образом пользователь взаимодействовал с UIControls классом. 
+`UIControlEvents` тип, определяющий каким именно образом пользователь взаимодействовал с UIControls классом. 
 
 
 ### Наследование от UIControl
@@ -142,7 +142,7 @@
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/583feec326204aea95eb9effb5fcbec0.png?raw=true">
 
-**tintColor**. Свойство оттенка, унаследованное от UIView. Свойство устанавливает цвет изображения кнопки и текста. По умолчанию наследует цвет superview
+**`tintColor`**. Свойство оттенка, унаследованное от UIView. Свойство устанавливает цвет изображения кнопки и текста. По умолчанию наследует цвет superview
 
 
 
@@ -171,9 +171,9 @@
 
 Есть два подхода помимо изменения свойства класса UITextField:
 
-1)	используя NSAttributerString
-В отличи от дерективного изменения свойств класса UITextField, при помощи NSAttributerString можно менять внешний вид не только строки, но и ее подстрок. 
-2)	используя NSFormatter
+1)	используя `NSAttributerString`
+В отличии от прямого изменения свойств класса UITextField, при помощи NSAttributerString можно менять внешний вид не только строки, но и ее подстрок. 
+2)	используя `NSFormatter`
 Встроенного механизма использовать NSFormatter нет, но нам доступна реализация метода делегата UITextField, например 
 ```objc
 - (BOOL)textField:(UITextField *)textField 
@@ -187,12 +187,12 @@ replacementString:(NSString *)string;
 UITextField вызывает методы делегата в ответ на некоторые пользовательские действия. Например эти методы используются для проверки текста введенного пользователем, проверки действий связанных с клавиатурой и т.д
 Например: 
 
-1)	Прежде чем стать firstResponder, UITextField вызывает метод делега textFieldShouldBeginEditing: а также отправляет сообщение **UITextFieldTextDidBeginEditingNotification**
-2)	Каждый раз когда меняется текст в текстовом поле, UITextField вызывает метод делегата textField:shouldChangeCharactersInRange:replacementString: и посылает сообщение **UITextFieldTextDidChangeNotification**
-3)	Когда пользователь нажимает кнопку очистки текстового поля, UITextField вызывает метод делегата  textFieldShouldClear:
-4)	Когда пользователь нажимает кнопку Return на клавиатуре, UITextField вызывает метод делегата textFieldShouldReturn:
-5)	Преждем чем UITextField теряет свойство firstResponder, UITextField вызывает метод делегата textFieldShouldEndEditing:, когда UITextField перестает быть firstResponder, система посылает сообщение **UIKeyboardWillHideNotification** и **UIKeyboardDidHideNotification**
-6)	Когда клавиатура спрятана и UITextField перестал быть FirstResponder, UITextField вызывает метод делегата  textFieldDidEndEditing: и посылает сообщение **UITextFieldTextDidEndEditingNotification**
+1)	Прежде чем стать firstResponder, UITextField вызывает метод делега `textFieldShouldBeginEditing`: а также отправляет сообщение **`UITextFieldTextDidBeginEditingNotification`**
+2)	Каждый раз когда меняется текст в текстовом поле, UITextField вызывает метод делегата `textField:shouldChangeCharactersInRange:replacementString:` и посылает сообщение **`UITextFieldTextDidChangeNotification`**
+3)	Когда пользователь нажимает кнопку очистки текстового поля, UITextField вызывает метод делегата  `textFieldShouldClear`:
+4)	Когда пользователь нажимает кнопку Return на клавиатуре, UITextField вызывает метод делегата `textFieldShouldReturn`:
+5)	Преждем чем UITextField теряет свойство firstResponder, UITextField вызывает метод делегата `textFieldShouldEndEditing`:, когда UITextField перестает быть firstResponder, система посылает сообщение **`UIKeyboardWillHideNotification`** и **`UIKeyboardDidHideNotification`**
+6)	Когда клавиатура спрятана и UITextField перестал быть FirstResponder, UITextField вызывает метод делегата  `textFieldDidEndEditing`: и посылает сообщение **`UITextFieldTextDidEndEditingNotification`**
 
 ### UITextField Overlay
 В дополнения к текстовому функционалу вы можете добавить overlay view для отображения дополнительной информации и функционала. Например, кнопка поиска или очистки текстового поля. Overlay представляет из себя небольшое изображение слева или справа от вводимого текста. 
@@ -223,7 +223,7 @@ typedef NS_ENUM(NSInteger, UITextFieldViewMode) {
     UITextFieldViewModeAlways
 };
 ```
-Стоит заметить, что это свойства по умолчанию установленно в **UITextFieldViewModeNever**, поэтому каждый раз, когда мы устанавливаем свой overlay, нам всегда нужно определить, когда нам нужно показывать наш overlay view. 
+Стоит заметить, что это свойства по умолчанию установленно в **`UITextFieldViewModeNever`**, поэтому каждый раз, когда мы устанавливаем свой overlay, нам всегда нужно определить, когда нам нужно показывать наш overlay view. 
 
 ### Keyboard attributes
 Атрибуты, связанные с тем, как будет выглядеть клавиатура. 
@@ -268,24 +268,24 @@ UIScrollView должно знать размер представления с�
 
 ## UITextViewDelegate
 Все методы делегата являются **опциональными**. Методы похожи на методы делегата UITextField.
-- **textViewShouldBeginEditing**:
+- **`textViewShouldBeginEditing`**:
 Спрашивает делегата, разрешено ли редактирование
-- **textViewDidBeginEditing**:
+- **`textViewDidBeginEditing`**:
 Сообщает делегату, что редактирование началось.
-- **textViewShouldEndEditing**:
+- **`textViewShouldEndEditing`**:
 Спрашивает делегата, разрешено ли закончить редактирование. 
-- **textViewDidEndEditing**:
+- **`textViewDidEndEditing`**:
 Сообщает делегату, что редактирование завершено.
-- **textView: shouldChangeTextInRange: replaceText:**
+- **`textView: shouldChangeTextInRange: replaceText:`**
 Спрашивает делегата, следует ли заменить указанный текст.
-- **textViewDidChange**:
+- **`textViewDidChange`**:
 Сообщает делегату, что текст или атрибуты были изменены пользователем.
-- **textViewDidChangeSelection**:
+- **`textViewDidChangeSelection`**:
 Сообщает делегату, что выделенный текст изменился.
 
-- **textView:shouldInteractWithTextAttachment:inRange:interaction:**
+- **`textView:shouldInteractWithTextAttachment:inRange:interaction:`**
 Asks the delegate if the specified text view should allow the specified type of user interaction with the provided text attachment in the given range of text.
-- **textView:shouldInteractWithURL:inRange:interaction:**
+- **`textView:shouldInteractWithURL:inRange:interaction:`**
 Asks the delegate if the specified text view should allow the specified type of user interaction with the given URL in the given range of text.
 
 

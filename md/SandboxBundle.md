@@ -13,7 +13,7 @@
 
 ##  Sandbox
 
-Sandbox(песочница) - функция безопасности для iOS. Все наши данные и части нашего приложения, файлы, бандлы. Sanbox инкапсулирует их. 
+**Sandbox**(песочница) - функция безопасности для iOS. Все наши данные и части нашего приложения, файлы, бандлы. Sandbox инкапсулирует их. 
 
 <img src="https://github.com/OrientCue/ios/blob/master/_resources/dcd3da3d8b584d14aeae9fad3661e9e9.png?raw=true">
 
